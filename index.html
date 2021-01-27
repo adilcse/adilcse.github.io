@@ -12,7 +12,6 @@
     <h2></h2>
     </div>
     <script type="text/javascript">
-    var x=998;
 const ones=["one","two","three","four","five","six","seven","eight","nine","ten"];
 const tens=["twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"];
 const eleven=["eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","ninteen"];
@@ -33,7 +32,6 @@ const getDigit=(n)=>{
   
     return count;
 }
-//423,464
 const getOnes=(n)=>{
     return n>0 ? ones[n-1] : "";
 }
@@ -90,7 +88,17 @@ const getThousends=(n)=>{
 }
 
 const getSpelling=(a)=>{
-    return getThousends(a);
+    if(isNaN(a) || !isFinite(a)){
+        return "invalid input";
+    }
+    const n = Math.floor(a);
+    if(n==0){
+        return 'zero';
+    } 
+    if (n<0) {
+        return `minus ${getThousends(n)}`
+    }
+    return getThousends(n);
 }
 document.getElementsByTagName("button")[0].addEventListener("click",(event)=>{
     var input = parseInt(document.getElementsByTagName("input")[0].value);
