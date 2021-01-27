@@ -61,7 +61,7 @@ const getHundreds=(n)=>{
     }
 }
 
-const getThousends=(n)=>{
+const getThousands=(n)=>{
     if(n>999999999999999){
         return "out of range";
     }
@@ -82,9 +82,9 @@ const getThousends=(n)=>{
     }
 
      if (n>nines) {
-        return `${getHundreds(f)} ${hundreds[t]} ${getThousends(l)}`;
+        return `${getHundreds(f)} ${hundreds[t]} ${getThousands(l)}`;
     }
-    return  getThousends(l);
+    return  getThousands(l);
 }
 
 const getSpelling=(a)=>{
@@ -96,9 +96,9 @@ const getSpelling=(a)=>{
         return 'zero';
     } 
     if (n<0) {
-        return `minus ${getThousends(Math.abs(n))}`
+        return `minus ${getThousands(Math.abs(n))}`
     }
-    return getThousends(n);
+    return getThousands(n);
 }
 document.getElementsByTagName("button")[0].addEventListener("click",(event)=>{
     var input = parseInt(document.getElementsByTagName("input")[0].value);
