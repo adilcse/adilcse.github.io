@@ -96,7 +96,7 @@ const getSpelling=(a)=>{
         return 'zero';
     } 
     if (n<0) {
-        return `minus ${getThousends(n)}`
+        return `minus ${getThousends(Math.abs(n))}`
     }
     return getThousends(n);
 }
